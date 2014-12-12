@@ -192,19 +192,6 @@ Protected Module Wrapper
 	#tag EndMethod
 
 
-	#tag Property, Flags = &h0
-		character As Text = "a"
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		EndOfLine As Text = "&u0A"
-	#tag EndProperty
-
-	#tag Property, Flags = &h0
-		Fontname As text = "ZNuscriptGuided"
-	#tag EndProperty
-
-
 	#tag Constant, Name = Foundation, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Private
 	#tag EndConstant
 
