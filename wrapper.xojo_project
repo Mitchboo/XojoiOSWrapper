@@ -11,7 +11,6 @@ Folder=App Icon;App Icon;&h1D40AFEA;&h0;false
 Folder=Launch Images;Launch Images;&h1DD7C4D;&h0;false
 BuildSteps=Build Automation;Build Automation.xojo_code;&h740BE5D5;&h0;false
 Module=Wrapper;Wrapper.xojo_code;&h18015FA7;&h0;false
-Picture=blue;../../../Desktop/blue.jpeg;&h347C81DB;&h0;false;0;&h0
 DefaultScreen=iPhoneScreen
 DefaultTabletScreen=iPadScreen
 MajorVersion=1
