@@ -44,6 +44,26 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub hideTabBar(v as iOSView, slf as iOSView)
+		  ' This method was posted by Paul Lefebvre at https://forum.xojo.com/18176-controlling-tab-bar-visibility/last
+		  ' on 12/12/2014
+		  
+		  'To hide the tabbar for a view, call as such :
+		  'Dim v As New View1
+		  'hideTabBar(v, Self)
+		  
+		  // @property(nonatomic) BOOL hidesBottomBarWhenPushed
+		  
+		  Declare Sub setHidesBottomBarWhenPushed Lib "UIKit" _
+		  Selector "setHidesBottomBarWhenPushed:" (id As Ptr, value As Boolean)
+		  
+		  setHidesBottomBarWhenPushed(v.Handle, True)
+		  
+		  Slf.PushTo(v)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Instr(Texte as Text, Cherche as Text) As Integer
 		  Return Texte.IndexOf(Cherche)
 		  
