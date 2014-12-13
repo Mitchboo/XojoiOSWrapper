@@ -8,6 +8,11 @@ plus a couple declares (setfocus/clearfocus) needed to activate and remove the k
 
 This repository contains the files as a xojo_project so they can be viewed online.
 
+If you download the zip, after doing so and extracting it, you need to create two empty folders next to the
+project files :
+App Icon
+Launch Images
+
 But if all you need is the wrapper module, simply download and drag Wrapper.xojo_binary_code into your program.
 
 Methods available : 

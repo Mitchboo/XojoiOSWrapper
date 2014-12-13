@@ -79,6 +79,8 @@ Protected Module Wrapper
 		  setHidesBottomBarWhenPushed(v.Handle, True)
 		  
 		  Slf.PushTo(v)
+		  
+		  // To reinstate the tab bar, close the pushed view.
 		End Sub
 	#tag EndMethod
 
