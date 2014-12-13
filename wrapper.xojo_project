@@ -6,6 +6,7 @@ iOSScreen=iPhoneScreen;iPhoneScreen.xojo_code;&h4B5DD547;&h0;false
 iOSScreen=iPadScreen;iPadScreen.xojo_code;&h7D5D909E;&h0;false
 iOSView=MainView;MainView.xojo_code;&h9C1F705;&h0;false
 iOSView=ViewBackgroundColor;ViewBackgroundColor.xojo_code;&h5C5F4235;&h0;false
+iOSView=SetNavigationBarColor;SetNavigationBarColor.xojo_code;&h40C7F396;&h0;false
 Folder=App Icon;App Icon;&h1D40AFEA;&h0;false
 Folder=Launch Images;Launch Images;&h1DD7C4D;&h0;false
 BuildSteps=Build Automation;Build Automation.xojo_code;&h740BE5D5;&h0;false
