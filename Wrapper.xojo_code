@@ -17,6 +17,19 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub Backdrop(extends b As iOSButton, assigns backdrop as iOSImage)
+		  'This method was posted by Jim McKay in the https://forum.xojo.com/18184-button-and-view-colours-ios/last thread
+		  'on 12/12/2014
+		  
+		  declare sub setBackgroundImage lib "UIKit" selector "setBackgroundImage:forState:" (obj as ptr, value as ptr, state as integer)
+		  setBackgroundImage(b.Handle,backdrop.Handle,0)
+		  
+		  //For use : iOSButton.Backdrop = Pic
+		  
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function chr(c as integer) As Text
 		  return Text.FromUnicodeCodepoint(c)
 		End Function
@@ -115,7 +128,7 @@ Protected Module Wrapper
 
 	#tag Method, Flags = &h0
 		Function redColor() As Ptr
-		  'From 
+		  'From
 		  'Private Function RedColor() As Ptr
 		  // Returns a red NSColor
 		  
@@ -133,6 +146,31 @@ Protected Module Wrapper
 		    return t.Right(count)
 		  end if
 		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub setBackgroundRoundedRectangle(extends b As iOSButton,  back As color, border as color, radius as double)
+		  'This method was posted by Jim McKay in the https://forum.xojo.com/18184-button-and-view-colours-ios/last thread
+		  'on 12/12/2014
+		  
+		  declare sub setBackgroundImage lib "UIKit" selector "setBackgroundImage:forState:" (obj as ptr, value as ptr, state as integer)
+		  
+		  radius=min(radius,min(b.Width,b.Height)/2-.01)
+		  
+		  dim pth As new iOSPath
+		  pth.AddRoundRect(0,0,b.width,b.height,radius,radius)
+		  
+		  dim p as new iOSBitmap(b.Width,b.Height,1)
+		  p.Graphics.LineColor=border
+		  p.Graphics.FillColor=back
+		  p.Graphics.LineWidth=1
+		  p.Graphics.FillPath(pth)
+		  p.Graphics.DrawPath(pth)
+		  
+		  dim i As iOSImage=p.Image
+		  setBackgroundImage(b.Handle,i.Handle,0)
+		  
+		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
@@ -192,6 +230,38 @@ Protected Module Wrapper
 	#tag EndMethod
 
 
+	#tag Note, Name = Untitled
+		
+		12/12/2014
+		
+		jim mckay  1 minute ago Beta Testers, Xojo Pro
+		Here's a method to add a round rect to an iOSButton
+		
+		Sub setColor(extends b As iOSButton,  back As color, border as color, radius as double)
+		declare sub setBackgroundImage lib "UIKit" selector "setBackgroundImage:forState:" (obj as ptr, value as ptr, state as integer)
+		
+		radius=min(radius,min(b.Width,b.Height)/2-.01)
+		
+		dim pth As new iOSPath
+		pth.AddRoundRect(0,0,b.width,b.height,radius,radius)
+		
+		dim p as new iOSBitmap(b.Width,b.Height,1)
+		p.Graphics.LineColor=border
+		p.Graphics.FillColor=back
+		p.Graphics.LineWidth=1
+		p.Graphics.FillPath(pth)
+		p.Graphics.DrawPath(pth)
+		
+		dim i As iOSImage=p.Image
+		setBackgroundImage(b.Handle,i.Handle,0)
+		End Sub
+		
+		-----------------------------------
+		
+		
+	#tag EndNote
+
+
 	#tag Constant, Name = Foundation, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Private
 	#tag EndConstant
 
@@ -200,24 +270,6 @@ Protected Module Wrapper
 
 
 	#tag ViewBehavior
-		#tag ViewProperty
-			Name="character"
-			Group="Behavior"
-			InitialValue="g"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="EndOfLine"
-			Group="Behavior"
-			InitialValue="&u0A"
-			Type="Text"
-		#tag EndViewProperty
-		#tag ViewProperty
-			Name="Fontname"
-			Group="Behavior"
-			InitialValue="ZNuscriptGuided"
-			Type="text"
-		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
