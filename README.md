@@ -12,8 +12,10 @@ But if all you need is the wrapper module, simply download and drag Wrapper.xojo
 
 Methods available : 
 Asc(),
+Backdrop() (for iOSButton),
 Chr(),
 Clearfocus,
+hideTabBar(),
 Instr(),
 Left(),
 Len(),
@@ -25,8 +27,9 @@ NthField(),
 redColor,
 Right(),
 SetFocus,
-SetSeparatorColor (for iOSTable),
-SetSeparatorStyle (for iOSTable),
+SetBackgroundRoundedRectangle() (for iOSButton),
+SetSeparatorColor() (for iOSTable),
+SetSeparatorStyle() (for iOSTable),
 ShowURL,
 Val(),
 

@@ -169,7 +169,7 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub setBackgroundRoundedRectangle(extends b As iOSButton,  back As color, border as color, radius as double)
+		Sub setBackgroundRoundedRectangle(extends b As iOSButton, back As color, border as color, radius as double)
 		  'This method was posted by Jim McKay in the https://forum.xojo.com/18184-button-and-view-colours-ios/last thread
 		  'on 12/12/2014
 		  
@@ -250,7 +250,7 @@ Protected Module Wrapper
 	#tag EndMethod
 
 
-	#tag Note, Name = Untitled
+	#tag Note, Name = Posts in the forum and tips
 		
 		12/12/2014
 		
@@ -278,7 +278,27 @@ Protected Module Wrapper
 		
 		-----------------------------------
 		
+		https://forum.xojo.com/18176-controlling-tab-bar-visibility/0#p151660
 		
+		Paul Lefebvre 11 hours ago Xojo Inc United States (Maine)
+		Seems like this might work:
+		
+		// @property(nonatomic) BOOL hidesBottomBarWhenPushed
+		
+		Dim v As New View3
+		
+		Declare Sub setHidesBottomBarWhenPushed Lib "UIKit" _
+		Selector "setHidesBottomBarWhenPushed:" (id As Ptr, value As Boolean)
+		
+		setHidesBottomBarWhenPushed(v.Handle, True)
+		
+		Self.PushTo(v)
+		
+		---
+		
+		To reinstate the tab, use self.close.
+		
+		---------
 	#tag EndNote
 
 

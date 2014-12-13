@@ -1,5 +1,5 @@
 #tag IOSView
-Begin iosView View1
+Begin iosView MainView
    BackButtonTitle =   ""
    Compatibility   =   ""
    Left            =   0
@@ -7,12 +7,38 @@ Begin iosView View1
    TabTitle        =   ""
    Title           =   ""
    Top             =   0
+   Begin iOSTable Table1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      Format          =   "0"
+      Height          =   320.0
+      Left            =   0
+      LockedInPosition=   False
+      Scope           =   0
+      SectionCount    =   0
+      Top             =   50
+      Visible         =   True
+      Width           =   320.0
+   End
 End
 #tag EndIOSView
 
 #tag WindowCode
 #tag EndWindowCode
 
+#tag Events Table1
+	#tag Event
+		Sub Open()
+		  me.AddSection("")
+		  me.AddRow(0, "ViewBackgroundColor")
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
 		Name="BackButtonTitle"
