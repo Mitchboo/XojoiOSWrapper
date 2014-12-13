@@ -10,7 +10,9 @@ This repository contains the files as a xojo_project so they can be viewed onlin
 
 If you download the zip, after doing so and extracting it, you need to create two empty folders next to the
 project files :
+
 App Icon
+
 Launch Images
 
 But if all you need is the wrapper module, simply download and drag Wrapper.xojo_binary_code into your program.
