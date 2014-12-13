@@ -44,6 +44,25 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function getGUID() As Text
+		  
+		  declare function NSClassFromString lib "Foundation" (clsName as cfstringref) as ptr
+		  dim UIDevicePtr as ptr = NSClassFromString("UIDevice")
+		  declare function currentDevice lib "UIKit" selector "currentDevice" (clsRef as ptr) as ptr
+		  dim currentDevicePtr as ptr = currentDevice(UIDevicePtr)
+		  
+		  declare function identifierForVendor lib "UIKit" selector "identifierForVendor" (obj_id as ptr) as ptr
+		  dim NSUUIDPtr as ptr = identifierForVendor(currentDevicePtr)
+		  
+		  declare function UUIDString lib "Foundation" selector "UUIDString" (obj_id as ptr) as cfstringref
+		  dim GUID as Text = UUIDString(NSUUIDPtr)
+		  
+		  return GUID
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub hideTabBar(v as iOSView, slf as iOSView)
 		  ' This method was posted by Paul Lefebvre at https://forum.xojo.com/18176-controlling-tab-bar-visibility/last
 		  ' on 12/12/2014
