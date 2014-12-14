@@ -10,10 +10,10 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       Format          =   "0"
       Height          =   320.0
       Left            =   0
@@ -36,6 +36,8 @@ End
 		  me.AddSection("")
 		  me.AddRow(0, "ViewBackgroundColor")
 		  me.AddRow(0, "SetNavigationBarColor")
+		  me.AddRow(0, "UITableView")
+		  
 		  
 		End Sub
 	#tag EndEvent
@@ -49,6 +51,8 @@ End
 		    newView = New ViewBackgroundColor
 		  case 1
 		    newView = new SetNavigationBarColor
+		  case 3
+		    newView = new ViewUITableView
 		  end select
 		  
 		  Self.PushTo(newView)
