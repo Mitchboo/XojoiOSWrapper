@@ -10,10 +10,10 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
-      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
+      AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
       Format          =   "0"
       Height          =   320.0
       Left            =   0
@@ -37,6 +37,21 @@ End
 		  me.AddRow(0, "ViewBackgroundColor")
 		  me.AddRow(0, "SetNavigationBarColor")
 		  
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Action(section As Integer, row As Integer)
+		  Dim newView As iOSView
+		  
+		  select case row
+		    
+		  case 0
+		    newView = New ViewBackgroundColor
+		  case 1
+		    newView = new SetNavigationBarColor
+		  end select
+		  
+		  Self.PushTo(newView)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
