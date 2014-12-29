@@ -10,9 +10,9 @@ Begin iosView ViewBackgroundColor
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 76, 
       AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
       AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 76, 
       AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 283, 
       Editable        =   True
       Height          =   283.0
@@ -30,20 +30,22 @@ Begin iosView ViewBackgroundColor
       Width           =   320.0
    End
    Begin iOSButton Button1
+      AccessibilityHint=   ""
+      AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 82, 
       AutoLayout      =   Button1, 1, <Parent>, 1, False, +1.00, 1, 1, 7, 
-      AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       AutoLayout      =   Button1, 4, TextArea1, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       Caption         =   "< Back"
       Enabled         =   True
       Height          =   30.0
-      Left            =   7.0
+      Left            =   7
       LockedInPosition=   False
       Scope           =   0
       TextColor       =   &cFF800000
       TextFont        =   "Custom	Helvetica	Helvetica-Bold"
       TextSize        =   18
-      Top             =   38.0
+      Top             =   38
       Visible         =   True
       Width           =   82.0
    End

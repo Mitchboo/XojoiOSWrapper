@@ -168,6 +168,72 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Pixel(extends g as iOSGraphics, x as integer, y as integer) As Color
+		  'Jason King
+		  'It works on both iOSGraphics and iOSImage. Just call img.Pixel(x,y) or g.Pixel(x,y) to get the color at the specified position. Enjoy!
+		  
+		  
+		  const UIKitLib =  "UIKit.framework"
+		  const CoreGraphicsLib = "CoreGraphics.framework"
+		  const FoundationLib = "Foundation.framework"
+		  
+		  declare function CGBitmapContextCreateImage lib CoreGraphicsLib (context as ptr) as ptr
+		  dim cgimageref as ptr = CGBitmapContextCreateImage(g.Handle)
+		  
+		  declare function imageWithCGImage lib UIKitLib selector "imageWithCGImage:" (clsRef as ptr, img as ptr) as ptr
+		  declare function NSClassFromString lib FoundationLib (clsName as CFStringRef) as ptr
+		  dim newUIImage as ptr = imageWithCGImage(NSClassFromString("UIImage"), cgimageref)
+		  
+		  Return iOSImage.FromHandle(newUIImage).Pixel(x,y)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Pixel(extends img as iosImage, x as integer, y as integer) As Color
+		  'Jason King
+		  'It works on both iOSGraphics and iOSImage. Just call img.Pixel(x,y) or g.Pixel(x,y) to get the color at the specified position. Enjoy!
+		  
+		  const CoreGraphicsLib = "CoreGraphics.framework"
+		  const UIKitLib = "UIKit.framework"
+		  const CoreFoundationLib = "CoreFoundation.framework"
+		  
+		  
+		  if x>img.Width or y>img.Height or x<0 or y<0 then
+		    dim e as new OutOfBoundsException
+		    e.Reason = "The pixel location must be within the bounds of the picture"
+		    Raise e
+		  end if
+		  
+		  declare function CGImage lib UIKitLib selector "CGImage" (obj_id as ptr) as ptr
+		  dim CGImageRef as ptr = CGImage(img.Handle)
+		  
+		  declare function CGImageGetDataProvider lib CoreGraphicsLib (cgimage as ptr) as ptr
+		  dim dataProvider as ptr = CGImageGetDataProvider(CGImageRef)
+		  
+		  declare function CGDataProviderCopyData lib CoreGraphicsLib (provider as ptr) as ptr
+		  dim pixelData as ptr = CGDataProviderCopyData(dataProvider)
+		  
+		  declare function CFDataGetBytePtr lib CoreFoundationLib (dataref as ptr) as Ptr
+		  dim dataMB as xojo.core.MemoryBlock = new xojo.Core.MemoryBlock(CFDataGetBytePtr(pixelData))
+		  
+		  dim numberOfComponents as Integer = 4 //PNG is RGBA
+		  dim startPoint as Integer = ((img.Width*y)+x)*numberOfComponents
+		  
+		  dim r, g, b, a as UInt8
+		  b = dataMB.UInt8Value(startPoint)
+		  g = dataMB.UInt8Value(startPoint+1)
+		  r = dataMB.UInt8Value(startPoint+2)
+		  a = 255-dataMB.UInt8Value(startPoint+3)
+		  
+		  declare sub CFRelease lib CoreFoundationLib (obj_id as ptr)
+		  CFRelease(pixelData)
+		  
+		  Return Color.RGBA(r,g,b,a)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function redColor() As Ptr
 		  'From
 		  'Private Function RedColor() As Ptr
@@ -260,6 +326,13 @@ Protected Module Wrapper
 		  // https://developer.apple.com/Library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instm/UIApplication/openURL:
 		  Declare Function openURL Lib "UIKit" Selector "openURL:" (id As Ptr, nsurl As Ptr) As Boolean
 		  Return openURL(sharedApp, nsURL)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function split(s as text, delimiter as text) As text()
+		  return s.split(delimiter)
 		  
 		End Function
 	#tag EndMethod
