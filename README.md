@@ -34,3 +34,5 @@ ShowURL,
 Val(),
 
 Will grow with future contributions ...
+
+See also https://github.com/sbeardsl/xojoGestures for a module from Stephen J. Beardslee which brings gesture support.

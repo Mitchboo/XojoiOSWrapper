@@ -10,9 +10,9 @@ Begin iosView ViewUITableView
    Begin iOSRectangle Rectangle1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Rectangle1, 7, , 0, False, +1.00, 1, 1, 126, 
       AutoLayout      =   Rectangle1, 3, <Parent>, 3, False, +1.00, 1, 1, 35, 
       AutoLayout      =   Rectangle1, 1, <Parent>, 1, False, +1.00, 1, 1, 166, 
-      AutoLayout      =   Rectangle1, 7, , 0, False, +1.00, 1, 1, 126, 
       AutoLayout      =   Rectangle1, 8, , 0, False, +1.00, 1, 1, 392, 
       BorderColor     =   &c00000000
       BorderWidth     =   2.0
@@ -31,11 +31,11 @@ Begin iosView ViewUITableView
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
       Alpha           =   0.0
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 44, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, -0, 
       AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 44, 
       AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      Format          =   ""
+      Format          =   "0"
       Height          =   320.0
       Left            =   0
       LockedInPosition=   False
@@ -50,9 +50,9 @@ Begin iosView ViewUITableView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 4, BottomLayoutGuide, 3, False, +1.00, 1, 1, -*kStdControlGapV, 
       AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
       Caption         =   "Untitled"
       Enabled         =   True

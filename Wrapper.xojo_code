@@ -411,10 +411,16 @@ Protected Module Wrapper
 	#tag EndNote
 
 
-	#tag Constant, Name = Foundation, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Private
+	#tag Constant, Name = Foundation, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = FoundationLib, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Public
 	#tag EndConstant
 
 	#tag Constant, Name = UIKit, Type = Text, Dynamic = False, Default = \"UIKit", Scope = Public
+	#tag EndConstant
+
+	#tag Constant, Name = WrFoundationLib, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Public
 	#tag EndConstant
 
 
