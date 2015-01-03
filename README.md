@@ -35,4 +35,5 @@ Val(),
 
 Will grow with future contributions ...
 
-See also https://github.com/sbeardsl/xojoGestures for a module from Stephen J. Beardslee which brings gesture support.
+See https://github.com/sbeardsl/xojoGestures for a module from Stephen J. Beardslee which brings gesture support.
+See https://github.com/UBogun/Xojo-iosLib from Ulrich Bogun for extended modules and classes.
