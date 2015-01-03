@@ -256,6 +256,18 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub SaveToCameraRoll(extends img as iOSImage)
+		  'Jason King
+		  'Just saw this conversation - its entirely possible with declares. Just pop this short function into a module and call it like "img.SaveToCameraRoll"
+		  
+		  'Sub SaveToCameraRoll(extends img as iOSImage)
+		  declare sub UIImageWriteToSavedPhotosAlbum lib "UIKit" (img as ptr, target as ptr, sel as ptr, info as ptr)
+		  UIImageWriteToSavedPhotosAlbum(img.Handle,nil,nil,nil)
+		  'End Sub
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub setBackgroundRoundedRectangle(extends b As iOSButton, back As color, border as color, radius as double)
 		  'This method was posted by Jim McKay in the https://forum.xojo.com/18184-button-and-view-colours-ios/last thread
 		  'on 12/12/2014
