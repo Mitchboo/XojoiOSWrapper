@@ -9,6 +9,7 @@ plus a couple declares (setfocus/clearfocus) needed to activate and remove the k
 This repository contains the files as a xojo_project so they can be viewed online.The project now contains classes, each on a separate page :
 
 - ViewBackgroundColor : changes the view background color
+
 - SetNavigationBarColor
 
 But if all you need is the wrapper module, simply download and drag Wrapper.xojo_binary_code into your program.
