@@ -44,6 +44,25 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function decodeBase64(aText as text) As Text
+		  'By Jason King
+		  'Function decodeBase64(aText as text) As Text
+		  declare function initWithBase64EncodedString lib FoundationLib selector "initWithBase64EncodedString:options:" _
+		  (obj_id as ptr, str as CFStringRef, options as Integer) as ptr
+		  declare function alloc lib FoundationLib selector "alloc" (clsRef as ptr) as ptr
+		  declare function NSClassFromString lib FoundationLib (clsName as CFStringRef) as ptr
+		  
+		  dim mData as ptr = initWithBase64EncodedString(alloc(NSClassFromString("NSData")), aText, 1)
+		  
+		  const NSUTF8StringEncoding = 4
+		  
+		  declare function initWithData lib FoundationLib selector "initWithData:encoding:" (obj_id as ptr, data as ptr, encoding as Integer) as CFStringRef
+		  Return initWithData(alloc(NSClassFromString("NSString")), mData, NSUTF8StringEncoding)
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function EncodeBase64(Extends t As Text) As Text
 		  'From Phillip Zedalis
 		  'Function EncodeBase64(Extends t As Text) As Text
