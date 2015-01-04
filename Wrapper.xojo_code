@@ -95,6 +95,26 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function encodeBase64_2(aText as Text) As Text
+		  'By Jason King
+		  'Function encodeBase64(aText as Text) As Text
+		  declare function dataUsingEncoding lib FoundationLib selector "dataUsingEncoding:" (obj_id as ptr, encoding as Integer) as ptr
+		  declare function stringWithString lib FoundationLib selector "stringWithString:" (obj_id as ptr, str as CFStringRef) as ptr
+		  declare function NSClassFromString lib FoundationLib (clsName as CFStringRef) as ptr
+		  
+		  const NSUTF8StringEncoding = 4
+		  dim str as Ptr = stringWithString(NSClassFromString("NSString"), aText)
+		  dim mData as ptr = dataUsingEncoding(str,NSUTF8StringEncoding)
+		  
+		  declare function base64EncodedStringWithOptions lib FoundationLib selector "base64EncodedStringWithOptions:" _
+		  (obj_id as ptr, options as Integer) as CFStringRef
+		  
+		  Return base64EncodedStringWithOptions(mData,1)
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function getGUID() As Text
 		  
 		  declare function NSClassFromString lib "Foundation" (clsName as cfstringref) as ptr
