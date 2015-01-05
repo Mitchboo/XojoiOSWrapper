@@ -115,6 +115,19 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function getAppVersion() As Text
+		  'Function getAppVersion() As Text
+		  declare function NSClassFromString lib FoundationLib (clsName as CFStringRef) as ptr
+		  declare function mainBundle lib FoundationLib selector "mainBundle" (clsRef as ptr) as ptr
+		  declare function objectForInfoDictionaryKey lib FoundationLib selector "objectForInfoDictionaryKey:" _
+		  (obj_id as ptr, key as CFStringRef) as CFStringRef
+		  
+		  Return objectForInfoDictionaryKey(mainBundle(NSClassFromString("NSBundle")), "CFBundleShortVersionString")
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function getGUID() As Text
 		  
 		  declare function NSClassFromString lib "Foundation" (clsName as cfstringref) as ptr
@@ -134,7 +147,7 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub goTabPage(idx as integer,doReset as Boolean=False)
+		Sub goTabPage(idx as integer, doReset as Boolean = False)
 		  'This method has been posted in the forum by Antonio Rinaldi.
 		  'It allows setting the active tab like if the user had tapped himself on the tab icon, without need for PushTo.
 		  'Index is zero based, left to right
