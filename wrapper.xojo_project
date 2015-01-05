@@ -1,8 +1,6 @@
 Type=iOS
 RBProjectVersion=2014.031
 MinIDEVersion=20140300
-iOSView=ViewUITableView;ViewUITableView.xojo_code;&h49CFB5D;&h0;false
-Class=UITableView;UITableView.xojo_code;&h20A0A28;&h0;false
 Class=App;App.xojo_code;&h78BD2B2C;&h0;false
 iOSScreen=iPhoneScreen;iPhoneScreen.xojo_code;&h4B5DD547;&h0;false
 iOSScreen=iPadScreen;iPadScreen.xojo_code;&h7D5D909E;&h0;false

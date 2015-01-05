@@ -134,6 +134,43 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub goTabPage(idx as integer,doReset as Boolean=False)
+		  'This method has been posted in the forum by Antonio Rinaldi.
+		  'It allows setting the active tab like if the user had tapped himself on the tab icon, without need for PushTo.
+		  'Index is zero based, left to right
+		  
+		  
+		  
+		  'Sub goTabPage(idx as integer,doReset as Boolean=False)
+		  if idx<0 then Return
+		  Declare Function NSClassFromString lib "Foundation"(cls as CFStringRef) as Ptr
+		  Declare function sharedApplication_ lib "UIKit" selector "sharedApplication"(cls_ptr as Ptr) as Ptr
+		  dim shAppPtr as Ptr=sharedApplication_(NSClassFromString("UIApplication"))
+		  
+		  Declare function keyWindow_ lib "UIkit" selector "keyWindow"(app_ptr as Ptr) as Ptr
+		  dim keyWinPtr as Ptr=keyWindow_(shAppPtr)
+		  
+		  Declare Function rootWiewController_ lib "UIKit" selector "rootViewController"(winPtr as Ptr) as Ptr
+		  dim rootWiewControllerPtr as Ptr=rootWiewController_(keyWinPtr)
+		  
+		  Declare Function isMemberOfClass_ lib "foundation" selector "isMemberOfClass:"(oPtr as Ptr,cPtr as Ptr) as Boolean
+		  dim a as ptr=NSClassFromString("UITabBarController")
+		  if isMemberOfClass_(rootWiewControllerPtr,NSClassFromString("UITabBarController")) then
+		    Declare sub setSelectedIndex lib "UIKIT" selector "setSelectedIndex:"(tbPtr as Ptr,page as UInteger)
+		    setSelectedIndex(rootWiewControllerPtr,idx)
+		    
+		    if doReset then
+		      Declare Function selectedViewController_ lib "UIKIT" selector "selectedViewController"(oPtr as ptr) as Ptr
+		      dim navPtr as Ptr=selectedViewController_(rootWiewControllerPtr)
+		      Declare Sub popToRoot lib "UIKIT" selector "popToRootViewControllerAnimated:"(oPtr as Ptr,animated as Boolean)
+		      popToRoot(navPtr,true)
+		    end if
+		  end if
+		  'End Sub
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Sub hideTabBar(v as iOSView, slf as iOSView)
 		  ' This method was posted by Paul Lefebvre at https://forum.xojo.com/18176-controlling-tab-bar-visibility/last
 		  ' on 12/12/2014
