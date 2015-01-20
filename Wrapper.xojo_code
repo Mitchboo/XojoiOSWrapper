@@ -471,6 +471,54 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function TextValue(extends a as Auto) As Text
+		  'This method has been created by Brock Nash
+		  'Function TextValue(extends a as Auto) As text
+		  Dim info As Xojo.Introspection.TypeInfo = Xojo.Introspection.GetType(a)
+		  
+		  #if TargetDesktop or TargetWeb then
+		    if info.Name = "string" then
+		      return CType(a, string).totext
+		    elseif info.name = "variant" then
+		      dim v as Variant = a
+		      return v.TextValue
+		    end
+		  #endif
+		  Select Case info.Name
+		  Case "Integer"
+		    return CType(a, Integer).totext
+		  Case "Int8"
+		    return CType(a, Int8).totext
+		  Case "UInt8"
+		    return CType(a, UInt8).totext
+		  Case "UInt16"
+		    return CType(a, UInt16).totext
+		  Case "UInt32"
+		    return CType(a, UInt32).totext
+		  Case "UInt64"
+		    return CType(a, UInt64).totext
+		  Case "Short"
+		    return CType(a, Short).totext
+		  Case "Byte"
+		    return CType(a, Byte).totext
+		  Case "Int32"
+		    return CType(a, Int32).totext
+		  Case "Int64"
+		    return CType(a, Int64).totext
+		  Case "text"
+		    dim t as text = a
+		    return t
+		  Case "Double"
+		    return CType(a, Double).totext
+		  Else
+		    return ""
+		  end
+		  
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function UIColor(c as Color) As Ptr
 		  // returns a Ptr to a new Uicolor Created from a Xojo Color
 		  declare function colorFromRGBA lib UIKit selector "colorWithRed:green:blue:alpha:" (id as Ptr, red as Single, green as Single, blue as Single, alpha as Single) as Ptr
