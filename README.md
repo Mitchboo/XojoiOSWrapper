@@ -39,6 +39,9 @@ SetSeparatorStyle() (for iOSTable),
 ShowURL,
 Val(),
 
+Constants :
+EndOfLine
+
 Will grow with future contributions ...
 
 See https://github.com/sbeardsl/xojoGestures for a module from Stephen J. Beardslee which brings gesture support.
