@@ -37,9 +37,9 @@ Protected Module Wrapper
 
 	#tag Method, Flags = &h0
 		Sub ClearFocus(extends c As iOSControl)
-		  declare sub resignFirstResponder lib "Foundation.Framework" selector "resignFirstResponder" (obj_id as Uint32)
+		  declare sub resignFirstResponder lib "Foundation.Framework" selector "resignFirstResponder" (obj_id as Ptr)
 		  
-		  resignFirstResponder(UInt32(c.handle))
+		  resignFirstResponder(c.handle)
 		End Sub
 	#tag EndMethod
 
@@ -415,9 +415,9 @@ Protected Module Wrapper
 
 	#tag Method, Flags = &h0
 		Sub SetFocus(extends c As iOSControl)
-		  declare sub becomeFirstResponder lib "Foundation.Framework" selector "becomeFirstResponder" (obj_id as Uint32)
+		  declare sub becomeFirstResponder lib "Foundation.Framework" selector "becomeFirstResponder" (obj_id as Ptr)
 		  
-		  becomeFirstResponder(UInt32(c.handle))
+		  becomeFirstResponder(c.handle)
 		End Sub
 	#tag EndMethod
 
@@ -591,6 +591,9 @@ Protected Module Wrapper
 		---------
 	#tag EndNote
 
+
+	#tag Constant, Name = EndOfLine, Type = , Dynamic = False, Default = \"\r\n", Scope = Public
+	#tag EndConstant
 
 	#tag Constant, Name = Foundation, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Public
 	#tag EndConstant
