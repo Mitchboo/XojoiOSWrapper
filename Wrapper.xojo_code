@@ -213,6 +213,14 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function isFirstResponder(extends c As iOSControl) As Boolean
+		  declare function isFirstResponder lib "Foundation.Framework" selector "isFirstResponder" (obj_id as Ptr) as boolean
+		  
+		  Return isFirstResponder(c.handle)
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Left(T as text, count as integer) As Text
 		  if count > 0 then
 		    if count > t.length then
@@ -592,8 +600,16 @@ Protected Module Wrapper
 	#tag EndNote
 
 
-	#tag Constant, Name = EndOfLine, Type = , Dynamic = False, Default = \"\r\n", Scope = Public
-	#tag EndConstant
+	#tag ComputedProperty, Flags = &h0
+		#tag Getter
+			Get
+			  return &u0D+&u0A
+			  
+			End Get
+		#tag EndGetter
+		EndOfLine As String
+	#tag EndComputedProperty
+
 
 	#tag Constant, Name = Foundation, Type = Text, Dynamic = False, Default = \"foundation.framework", Scope = Public
 	#tag EndConstant
