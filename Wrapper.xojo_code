@@ -607,7 +607,7 @@ Protected Module Wrapper
 			  
 			End Get
 		#tag EndGetter
-		EndOfLine As String
+		EndOfLine As Text
 	#tag EndComputedProperty
 
 
@@ -625,6 +625,11 @@ Protected Module Wrapper
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="EndOfLine"
+			Group="Behavior"
+			Type="String"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
 			Visible=true
