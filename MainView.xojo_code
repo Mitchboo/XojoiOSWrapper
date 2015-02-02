@@ -10,10 +10,10 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       Format          =   "0"
       Height          =   320.0
       Left            =   0
@@ -27,10 +27,10 @@ Begin iosView MainView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 122, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 386, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 122, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 386, 
       Caption         =   "Hide status bar"
       Enabled         =   True
       Height          =   30.0
@@ -43,6 +43,24 @@ Begin iosView MainView
       Top             =   386
       Visible         =   True
       Width           =   122.0
+   End
+   Begin iOSButton Button2
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button2, 1, , 0, False, +1.00, 1, 1, 134, 
+      AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
+      Caption         =   "Untitled"
+      Enabled         =   True
+      Height          =   30.0
+      Left            =   134.0
+      LockedInPosition=   False
+      Scope           =   0
+      TextColor       =   &c007AFF00
+      TextFont        =   ""
+      TextSize        =   0
+      Top             =   424.0
+      Visible         =   True
+      Width           =   100.0
    End
 End
 #tag EndIOSView
@@ -82,6 +100,14 @@ End
 		Sub Action()
 		  dim v as new mainview
 		  app.HideStatusBar(v)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events Button2
+	#tag Event
+		Sub Action()
+		  dim b as boolean = true
+		  msgbox b.boolToText
 		End Sub
 	#tag EndEvent
 #tag EndEvents

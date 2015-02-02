@@ -30,6 +30,12 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function boolToText(extends variable as boolean) As Text
+		  return If(variable, "True", "False")
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function chr(c as integer) As Text
 		  return Text.FromUnicodeCodepoint(c)
 		End Function
@@ -110,6 +116,16 @@ Protected Module Wrapper
 		  (obj_id as ptr, options as Integer) as CFStringRef
 		  
 		  Return base64EncodedStringWithOptions(mData,1)
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function FindType(extends au as Auto) As Text
+		  'Function FindType(extends au as Auto) As Text
+		  dim oTypeInfo as xojo.Introspection.TypeInfo = Xojo.Introspection.GetType(au)
+		  
+		  return oTypeInfo.FullName
 		  'End Function
 		End Function
 	#tag EndMethod
@@ -628,7 +644,7 @@ Protected Module Wrapper
 		#tag ViewProperty
 			Name="EndOfLine"
 			Group="Behavior"
-			Type="String"
+			Type="Text"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
