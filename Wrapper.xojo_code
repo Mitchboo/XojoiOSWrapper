@@ -615,6 +615,29 @@ Protected Module Wrapper
 		---------
 	#tag EndNote
 
+	#tag Note, Name = Present view modal
+		
+		Jason King is not verified 5 hours ago 2015/2/6
+		I don't know if this will help you any, but you can present the new view modally and it won't have a toolbar at all. You would then have to add your own cancel and done buttons (since it doesn't seem possible to use the Navigationbar for modal views) but it would eliminate the back arrow problem. To present a view modally:
+		
+		declare sub presentViewController_ lib UIKitLib selector "presentViewController:animated:completion:" (obj_id as ptr, viewControllerToPresent as ptr, flag as Boolean, completion as ptr)
+		//newView is an instance of iOSView which is the new view you want to present modally, self is the iOSView you want to cover up (what you would normally call self.PushTo() from to display newView
+		PresentViewController_(self.ViewControllerHandle, newView.ViewControllerHandle, True, nil)
+		To dismiss that view:
+		
+		declare sub dismissModalViewController lib UIKitLib selector "dismissViewControllerAnimated:completion:" _
+		(obj_id as ptr, animated as Boolean, completion as ptr)
+		//self is the parent iOSView, not the view you presented modally
+		//you may want to keep a reference to the parent iOSView in the modally presented view so that you can dismiss the modal view from within itself (i.e. by a button)
+		dismissModalViewController(self.ViewControllerHandle, True, Nil)
+		
+	#tag EndNote
+
+	#tag Note, Name = Untitled
+		
+		
+	#tag EndNote
+
 
 	#tag ComputedProperty, Flags = &h0
 		#tag Getter
