@@ -279,6 +279,24 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function MD5(extends t as Text) As Text
+		  'Antonio Rinaldi  2/14/2015
+		  'https://forum.xojo.com/20012-md5-on-text/0#p167800
+		  
+		  'Function MD5(extends t as Text) As Text
+		  dim a As MemoryBlock = TextEncoding.UTF8.ConvertTextToData(t)
+		  dim b As MemoryBlock = Xojo.Crypto.MD5(a)
+		  dim v() as Text
+		  dim n as UInteger=b.Size-1
+		  for i as UInteger=0 to n
+		    v.Append b.UInt8Value(i).ToHex(2)
+		  next
+		  return text.Join(v,"")
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function Mid(T as Text, start as Integer, lengt as integer) As Text
 		  if lengt > 0 then
 		    if lengt > T.Length then lengt = t.Length
