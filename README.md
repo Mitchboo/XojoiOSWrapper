@@ -18,6 +18,7 @@ Methods available :
 Asc(),
 Backdrop() (for iOSButton),
 BoolToText
+CDbl(), 
 Chr(),
 Clearfocus,
 EncodeBase64

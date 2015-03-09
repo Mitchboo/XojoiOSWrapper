@@ -36,6 +36,13 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function Cdbl(Number as Text) As Double
+		  return double.FromText(Number)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function chr(c as integer) As Text
 		  return Text.FromUnicodeCodepoint(c)
 		End Function
