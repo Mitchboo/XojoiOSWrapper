@@ -267,8 +267,8 @@ Protected Module Wrapper
 		  'Function MainScreenScale() As Double
 		  //declare function NSClassFromString lib "Foundation.Framework" (aClassName as CFStringRef) as Ptr
 		  declare function NSClassFromString lib "Foundation" (aClassName as CFStringRef) as Ptr
-		  soft declare function scale lib "Cocoa" selector "scale" (classRef as Ptr) as single
-		  soft declare function mainScreen lib "Cocoa" selector "mainScreen" (classRef as Ptr) as ptr
+		  soft declare function scale lib "UIKit" selector "scale" (classRef as Ptr) as single
+		  soft declare function mainScreen lib "UIKit" selector "mainScreen" (classRef as Ptr) as ptr
 		  
 		  
 		  return scale(mainScreen(NSClassFromString("UIScreen")))
@@ -501,7 +501,7 @@ Protected Module Wrapper
 		  Declare Function sharedApplication Lib "UIKit" Selector "sharedApplication" (obj As Ptr) As Ptr
 		  Dim sharedApp As Ptr = sharedApplication(NSClassFromString("UIApplication"))
 		  
-		  // https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSURL_Class/#//apple_ref/occ/clm/NSURL/URLWithString:
+		  // https://developer.apple.com/library/mac/documentation/UIKit/Reference/Foundation/Classes/NSURL_Class/#//apple_ref/occ/clm/NSURL/URLWithString:
 		  Declare Function URLWithString Lib "Foundation" Selector "URLWithString:" ( id As Ptr, URLString As CFStringRef ) As Ptr
 		  Dim nsURL As Ptr = URLWithString(NSClassFromString("NSURL"), url)
 		  
