@@ -41,6 +41,7 @@ SetBackgroundRoundedRectangle() (for iOSButton),
 SetSeparatorColor() (for iOSTable),
 SetSeparatorStyle() (for iOSTable),
 ShowURL,
+StripAccents(),
 Val(),
 
 Constants :

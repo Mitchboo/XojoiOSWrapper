@@ -520,6 +520,28 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function StripAccents(T as Text) As Text
+		  //From Eli Ott, in https://forum.xojo.com/29028-textencodings-to-remove-accented-characters
+		  Declare Function dataUsingEncoding Lib "Foundation" Selector "dataUsingEncoding:allowLossyConversion:" _
+		  (NSString As CFStringRef, NSStringEncoding As UInteger, allowLossyConversion As Boolean) As Ptr
+		  Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
+		  Declare Function alloc Lib "Foundation" Selector "alloc" (NSClass As Ptr) As Ptr
+		  Declare Function initWithData Lib "Foundation" Selector "initWithData:encoding:" _
+		  (NSClass As Ptr, NSData As Ptr, NSStringEncoding As UInteger) As CFStringRef
+		  
+		  Const NSASCIIStringEncoding = 1
+		  
+		  //Dim t As Text = "áéíóúàèìòùäëïöüãõÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÃÕç"
+		  
+		  Dim data As Ptr = dataUsingEncoding(t, NSASCIIStringEncoding, True)
+		  Dim result As CFStringRef = initWithData(alloc(NSClassFromString("NSString")), data, NSASCIIStringEncoding)
+		  
+		  Return Result
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function TextValue(extends a as Auto) As Text
 		  'This method has been created by Brock Nash
 		  'Function TextValue(extends a as Auto) As text
