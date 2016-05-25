@@ -261,6 +261,22 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function LenB(Extends T as Text) As Integer
+		  
+		  const allowLossy as boolean = True
+		  Return TextEncoding.UTF8.ConvertTextToData(T, allowLossy).Size
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function LenB(T as Text) As Integer
+		  
+		  const allowLossy as boolean = True
+		  Return TextEncoding.UTF8.ConvertTextToData(T, allowLossy).Size
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function MainScreenScale() As Double
 		  //Jim McKay Retina detection
 		  
