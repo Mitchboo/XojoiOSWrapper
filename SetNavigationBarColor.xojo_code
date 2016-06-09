@@ -10,10 +10,10 @@ Begin iosView SetNavigationBarColor
    Begin iOSTextArea TextArea1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 87, 
       AutoLayout      =   TextArea1, 8, , 0, False, +1.00, 1, 1, 200, 
+      AutoLayout      =   TextArea1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   TextArea1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   TextArea1, 3, <Parent>, 3, False, +1.00, 1, 1, 87, 
       Editable        =   True
       Height          =   200.0
       KeyboardType    =   "0"
@@ -32,10 +32,10 @@ Begin iosView SetNavigationBarColor
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 306, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 100, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 306, 
       Caption         =   "Color in Red"
       Enabled         =   True
       Height          =   30.0
@@ -52,10 +52,10 @@ Begin iosView SetNavigationBarColor
    Begin iOSButton Button2
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 130, 
-      AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       AutoLayout      =   Button2, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button2, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button2, 7, , 0, False, +1.00, 1, 1, 130, 
+      AutoLayout      =   Button2, 3, Button1, 4, False, +1.00, 1, 1, *kStdControlGapV, 
       Caption         =   "For tabbed view"
       Enabled         =   True
       Height          =   30.0

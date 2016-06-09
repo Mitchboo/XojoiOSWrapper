@@ -10,10 +10,10 @@ Begin iosView MainView
    Begin iOSTable Table1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
-      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       AutoLayout      =   Table1, 2, <Parent>, 2, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 3, <Parent>, 3, False, +1.00, 1, 1, 50, 
+      AutoLayout      =   Table1, 1, <Parent>, 1, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Table1, 8, , 0, False, +1.00, 1, 1, 320, 
       Format          =   "0"
       Height          =   320.0
       Left            =   0
@@ -27,10 +27,10 @@ Begin iosView MainView
    Begin iOSButton Button1
       AccessibilityHint=   ""
       AccessibilityLabel=   ""
-      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
-      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 122, 
-      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 386, 
       AutoLayout      =   Button1, 8, , 0, False, +1.00, 1, 1, 30, 
+      AutoLayout      =   Button1, 7, , 0, False, +1.00, 1, 1, 122, 
+      AutoLayout      =   Button1, 9, <Parent>, 9, False, +1.00, 1, 1, 0, 
+      AutoLayout      =   Button1, 3, <Parent>, 3, False, +1.00, 1, 1, 386, 
       Caption         =   "Hide status bar"
       Enabled         =   True
       Height          =   30.0

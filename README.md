@@ -23,6 +23,7 @@ Chr(),
 Clearfocus,
 EncodeBase64
 DecodeBase64()
+EncodeURLComponent()
 Auto.FindType
 hideTabBar(),
 Instr(),

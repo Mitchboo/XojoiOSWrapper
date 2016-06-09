@@ -128,6 +128,16 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function EncodeURLComponent(value as text) As text
+		  
+		  Declare Function CFURLCreateStringByAddingPercentEscapes lib "Foundation" (allocator as Ptr, origString as CFStringRef , charactersToLeaveUnescaped as CFStringRef , legalURLCharactersToBeEscaped as cfStringRef,encoding as uint32) as CFStringRef
+		  
+		  return CFURLCreateStringByAddingPercentEscapes(nil, value, nil, nil, &h08000100)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function FindType(extends au as Auto) As Text
 		  'Function FindType(extends au as Auto) As Text
 		  dim oTypeInfo as xojo.Introspection.TypeInfo = Xojo.Introspection.GetType(au)
