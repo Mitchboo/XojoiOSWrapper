@@ -17,13 +17,14 @@ But if all you need is the wrapper module, simply download and drag Wrapper.xojo
 Methods available : 
 Asc(),
 Backdrop() (for iOSButton),
-BoolToText
+BoolToText,
 CDbl(), 
 Chr(),
 Clearfocus,
 EncodeBase64
-DecodeBase64()
-EncodeURLComponent()
+EncodeBase64 with memoryblock in, avoiding the sometimes impossible convertion to Text,
+DecodeBase64(),
+EncodeURLComponent(),
 Auto.FindType
 hideTabBar(),
 Instr(),

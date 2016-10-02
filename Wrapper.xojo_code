@@ -76,6 +76,38 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function encodeBase64(extends mb as MemoryBlock) As Text
+		  'From Phillip Zedalis
+		  'Function EncodeBase64(Extends t As Text) As Text
+		  Declare Function dataWithBytes Lib "UIKit" Selector "dataWithBytes:length:" (class_id As Ptr, bytes As Ptr, length As UInt32) As Ptr
+		  Declare Function base64EncodedStringWithOptions Lib "UIKit" Selector "base64EncodedStringWithOptions:" (class_id As Ptr, options As UInt32) As CFStringRef
+		  
+		  // Create NSData pointer to be point of reference.
+		  Dim data As Ptr
+		  data = NSClassFromString("NSData")
+		  
+		  '// Create global ASCII TextEncoding
+		  'Dim te As Xojo.Core.TextEncoding
+		  'te = Xojo.Core.TextEncoding.FromIANAName("ISO-8859-1")
+		  '
+		  '// Convert Text to MemoryBlock
+		  'Dim tmb As Xojo.Core.MemoryBlock
+		  'tmb = te.ConvertTextToData(t)
+		  
+		  // Create NSData object using MemoryBlock
+		  Dim dataRef as Ptr = dataWithBytes(data, mb.Data, mb.Size)
+		  
+		  // Create Text object to hold Base64 encoded string.
+		  Dim x As Text
+		  x = base64EncodedStringWithOptions(dataRef, 0)
+		  
+		  // Return Base64 encoded string
+		  Return x
+		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function EncodeBase64(Extends t As Text) As Text
 		  'From Phillip Zedalis
 		  'Function EncodeBase64(Extends t As Text) As Text
