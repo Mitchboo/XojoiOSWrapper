@@ -595,6 +595,9 @@ Protected Module Wrapper
 		  elseif info.name = "Single" or info.name = "Double"then
 		    dim v as double = value
 		    Return v.ToText
+		  elseif info.name = "Date" then
+		    dim d as date = value
+		    Return d.Totext
 		  end if
 		  
 		End Function
