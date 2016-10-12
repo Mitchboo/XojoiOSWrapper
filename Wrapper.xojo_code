@@ -57,6 +57,16 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Function ColorToText(extends C as color) As Text
+		  return "&c"+c.Red.toHex(2) + _
+		  c.Green.toHex(2) + _
+		  c.Blue.toHex(2) + _
+		  c.Alpha.toHex(2)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function decodeBase64(aText as text) As Text
 		  'By Jason King
 		  'Function decodeBase64(aText as text) As Text
@@ -644,6 +654,25 @@ Protected Module Wrapper
 		  end
 		  
 		  'End Function
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Transparent(Extends Img as iOSImage) As iOSImage
+		  dim pic as new iOSBitmap(img.width, img.height, 1, False)
+		  
+		  for x as integer = 0 to img.width
+		    for y as integer = 0 to img.height
+		      if blueSquare.Pixel(x,y) <> &c00000000 then
+		        pic.Graphics.AntiAlias = False
+		        pic.graphics.LineColor = blueSquare.pixel(x,y)
+		        pic.Graphics.LineWidth =  1
+		        pic.Graphics.DrawLine(x,y,x+1,y)
+		      end if
+		    next
+		  next
+		  
+		  return pic.Image
 		End Function
 	#tag EndMethod
 
