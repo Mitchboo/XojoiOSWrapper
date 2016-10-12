@@ -679,9 +679,9 @@ Protected Module Wrapper
 		  
 		  for x as integer = 0 to img.width
 		    for y as integer = 0 to img.height
-		      if blueSquare.Pixel(x,y) <> &c00000000 then
+		      if img.Pixel(x,y) <> &c00000000 then
 		        pic.Graphics.AntiAlias = False
-		        pic.graphics.LineColor = blueSquare.pixel(x,y)
+		        pic.graphics.LineColor = img.pixel(x,y)
 		        pic.Graphics.LineWidth =  1
 		        pic.Graphics.DrawLine(x,y,x+1,y)
 		      end if
