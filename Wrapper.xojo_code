@@ -57,16 +57,6 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Function ColorToText(extends C as color) As Text
-		  return "&c"+c.Red.toHex(2) + _
-		  c.Green.toHex(2) + _
-		  c.Blue.toHex(2) + _
-		  c.Alpha.toHex(2)
-		  
-		End Function
-	#tag EndMethod
-
-	#tag Method, Flags = &h0
 		Function decodeBase64(aText as text) As Text
 		  'By Jason King
 		  'Function decodeBase64(aText as text) As Text
@@ -583,6 +573,29 @@ Protected Module Wrapper
 	#tag Method, Flags = &h0
 		Function split(s as text, delimiter as text) As text()
 		  return s.split(delimiter)
+		  
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Function Str(Value as Auto) As Text
+		  Dim info As Xojo.Introspection.TypeInfo
+		  info = Xojo.Introspection.GetType(Value)
+		  system.debuglog info.Name
+		  
+		  if info.Name = "Color" then
+		    dim c as color = Value
+		    return "&c"+c.Red.toHex(2) + _
+		    c.Green.toHex(2) + _
+		    c.Blue.toHex(2) + _
+		    c.Alpha.toHex(2)
+		  elseif info.name = "Int32" or info.name = "Int64" or info.name = "UInt32" or info.name = "Int64" then
+		    dim v as Int64 = value
+		    Return v.ToText
+		  elseif info.name = "Single" or info.name = "Double"then
+		    dim v as double = value
+		    Return v.ToText
+		  end if
 		  
 		End Function
 	#tag EndMethod
