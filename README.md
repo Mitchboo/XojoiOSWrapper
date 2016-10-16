@@ -26,6 +26,7 @@ EncodeBase64
 EncodeBase64 with memoryblock in, avoiding the sometimes impossible convertion to Text,
 DecodeBase64(),
 EncodeURLComponent(),
+Floor(),
 Auto.FindType
 hideTabBar(),
 Instr(),
