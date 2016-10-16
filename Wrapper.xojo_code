@@ -30,6 +30,22 @@ Protected Module Wrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Sub BackGroundColor(extends UIView as iOSControl, assigns Clr as Color)
+		  
+		  Declare Function NSClassFromString Lib "Foundation" (className As CFStringRef) As Ptr
+		  Declare Function colorWithRGBA Lib "UIKit" Selector "colorWithRed:green:blue:alpha:" ( _
+		  UIColorClassRef As Ptr, red As CGFloat, green As CGFloat, blue As CGFloat, alpha As CGFloat) As Ptr
+		  Declare Function view Lib "UIKit" Selector "view" (UIViewController As Ptr) As Ptr
+		  Declare Sub setBackgroundColor Lib "UIKit" Selector "setBackgroundColor:" (UIView As Ptr, UIColor As Ptr)
+		  
+		  Dim UIColorClassPtr As Ptr =  NSClassFromString("UIColor")
+		  Dim colorPtr As ptr = colorWithRGBA(UIColorClassPtr, (Clr.Red / 255), (Clr.Green / 255), (Clr.Blue / 255), 1-(Clr.Alpha/255))
+		  Dim viewPtr As Ptr = UIView.Handle
+		  setBackgroundColor(viewPtr, colorPtr)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Function boolToText(extends variable as boolean) As Text
 		  return If(variable, "True", "False")
 		End Function
