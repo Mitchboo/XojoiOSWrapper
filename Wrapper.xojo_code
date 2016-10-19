@@ -614,6 +614,13 @@ Protected Module Wrapper
 		  elseif info.name = "Date" then
 		    dim d as date = value
 		    Return d.Totext
+		  elseif info.name = "Boolean" then
+		    dim b as Boolean= Value
+		    if b then 
+		      Return "True"
+		    else
+		      Return "False"
+		    end if
 		  end if
 		  
 		End Function
