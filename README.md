@@ -46,6 +46,7 @@ SetSeparatorColor() (for iOSTable),
 SetSeparatorStyle() (for iOSTable),
 ShowURL,
 StripAccents(),
+CC.TrueWindow, CC.TrueView,
 Val(),
 
 Constants :
