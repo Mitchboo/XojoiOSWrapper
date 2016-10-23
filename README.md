@@ -44,6 +44,7 @@ SetFocus,
 SetBackgroundRoundedRectangle() (for iOSButton),
 SetSeparatorColor() (for iOSTable),
 SetSeparatorStyle() (for iOSTable),
+ShellPath
 ShowURL,
 StripAccents(),
 CC.TrueWindow, CC.TrueView,
