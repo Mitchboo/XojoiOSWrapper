@@ -52,6 +52,7 @@ StringHeight(),
 StringWidth(),
 StripAccents(),
 TextAscent(),
+Tab (constant),
 CC.TrueWindow, CC.TrueView,
 Val(),
 
