@@ -27,6 +27,7 @@ EncodeBase64 with memoryblock in, avoiding the sometimes impossible convertion t
 DecodeBase64(),
 EncodeURLComponent(),
 Floor(),
+ForeColor,
 Auto.FindType
 hideTabBar(),
 Instr(),
@@ -47,7 +48,10 @@ SetSeparatorColor() (for iOSTable),
 SetSeparatorStyle() (for iOSTable),
 ShellPath
 ShowURL,
+StringHeight(),
+StringWidth(),
 StripAccents(),
+TextAscent(),
 CC.TrueWindow, CC.TrueView,
 Val(),
 
