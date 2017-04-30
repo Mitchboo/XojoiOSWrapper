@@ -17,7 +17,8 @@ But if all you need is the wrapper module, simply download and drag Wrapper.xojo
 Methods available : 
 Asc(),
 Backdrop() (for iOSButton),
-BackgroundColor (for TextField and TextArea),
+BackgroundColor (for TextField and TextArea, works with most controls),
+BackgroundImage (for most controls, including CC)
 BoolToText,
 CDbl(), 
 Chr(),
